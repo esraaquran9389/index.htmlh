@@ -2,80 +2,74 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>المصحف بالرسم العثماني</title>
+  <title>عرض 3 صفحات من المصحف</title>
   <style>
-    body {
-      font-family: 'QCF_P001', sans-serif;
-      text-align: center;
-      background: #fefefe;
-      margin: 0;
-      padding: 20px;
-      direction: rtl;
+    @font-face {
+      font-family: 'QCF_P001';
+      src: url('QCF_P001.TTF') format('truetype');
     }
 
     @font-face {
-      font-family: 'QCF_P001';
-      src: url('QCF_BSML.fonts/QCF_P001.TTF') format('truetype');
+      font-family: 'QCF_P002';
+      src: url('QCF_P002.TTF') format('truetype');
     }
 
-    #page {
-      font-size: 38px;
-      line-height: 1.8;
-      margin: 40px auto;
+    @font-face {
+      font-family: 'QCF_P003';
+      src: url('QCF_P003.TTF') format('truetype');
     }
 
-    button {
-      font-size: 18px;
-      padding: 10px 20px;
-      margin: 10px;
-      cursor: pointer;
+    body {
+      background-color: #f9f9f9;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .page {
+      width: 30%;
+      font-size: 48px;
+      text-align: center;
+      direction: rtl;
+      padding: 30px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .page1 {
+      font-family: 'QCF_P001', sans-serif;
+    }
+
+    .page2 {
+      font-family: 'QCF_P002', sans-serif;
+    }
+
+    .page3 {
+      font-family: 'QCF_P003', sans-serif;
     }
   </style>
 </head>
 <body>
+  <div class="page page1">
+    ﮌﮍ<br>
+    ﭑ ﭒ ﭓ ﭔ ﭕ ﭖ ﭗ ﭘ ﭙ ﭚ ﭛ ﭜ ﭝ ﭞ ﭟ ﭠ ﭡ ﭢ ﭣ ﭤ ﭥ ﭦ ﭧ ﭨ ﭩ ﭪ ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ ﭴ<br>
+    ١
+  </div>
 
-<h2>المصحف بالرسم العثماني</h2>
-<div id="page">ﮌﮍ<br>ﭑ ﭒ ﭓ ﭔ ﭕ ﭖ ﭗ ﭘ ﭙ ﭚ ﭛ ﭜ ﭝ ﭞ ﭟ ﭠ ﭡ ﭢ ﭣ ﭤ ﭥ ﭦ ﭧ ﭨ ﭩ ﭪ ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ ﭴ<br>١</div>
+  <div class="page page2">
+    ﮌﮍ<br>
+    ﭑ ﭒ ﭓ ﭔ ﭕ ﭖ ﭗ ﭘ ﭙ ﭚ ﭛ ﭜ ﭝ ﭞ ﭟ ﭠ ﭡ ﭢ ﭣ ﭤ ﭥ ﭦ ﭧ ﭨ ﭩ ﭪ ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ ﭴ<br>
+    ٢
+  </div>
 
-<button onclick="prevPage()">السابق</button>
-<button onclick="nextPage()">التالي</button>
-
-<script>
-  let currentPage = 1;
-
-  function updateFont() {
-    const fontName = `QCF_P${String(currentPage).padStart(3, '0')}`;
-    const fontPath = `QCF_BSML.fonts/${fontName}.TTF`;
-
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @font-face {
-        font-family: '${fontName}';
-        src: url('${fontPath}') format('truetype');
-      }
-      #page {
-        font-family: '${fontName}';
-      }
-    `;
-    document.head.appendChild(style);
-
-    document.getElementById('page').innerHTML = `الصفحة رقم ${currentPage}`;
-  }
-
-  function nextPage() {
-    if (currentPage < 604) {
-      currentPage++;
-      updateFont();
-    }
-  }
-
-  function prevPage() {
-    if (currentPage > 1) {
-      currentPage--;
-      updateFont();
-    }
-  }
-</script>
-
+  <div class="page page3">
+    ﮌﮍ<br>
+    ﭑ ﭒ ﭓ ﭔ ﭕ ﭖ ﭗ ﭘ ﭙ ﭚ ﭛ ﭜ ﭝ ﭞ ﭟ ﭠ ﭡ ﭢ ﭣ ﭤ ﭥ ﭦ ﭧ ﭨ ﭩ ﭪ ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ ﭴ<br>
+    ٣
+  </div>
 </body>
 </html>
