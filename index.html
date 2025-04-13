@@ -2,28 +2,80 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>عرض النص بالخط</title>
+  <title>المصحف بالرسم العثماني</title>
   <style>
-    @font-face {
-      font-family: 'QCF_P001';
-      src: url('QCF_P001.TTF') format('truetype');
-    }
-
     body {
       font-family: 'QCF_P001', sans-serif;
-      font-size: 48px;
       text-align: center;
+      background: #fefefe;
+      margin: 0;
+      padding: 20px;
       direction: rtl;
-      padding: 50px;
-      background-color: #f9f9f9;
+    }
+
+    @font-face {
+      font-family: 'QCF_P001';
+      src: url('QCF_BSML.fonts/QCF_P001.TTF') format('truetype');
+    }
+
+    #page {
+      font-size: 38px;
+      line-height: 1.8;
+      margin: 40px auto;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
-  <div>
-    ﮌﮍ<br>
-    ﭑ ﭒ ﭓ ﭔ ﭕ ﭖ ﭗ ﭘ ﭙ ﭚ ﭛ ﭜ ﭝ ﭞ ﭟ ﭠ ﭡ ﭢ ﭣ ﭤ ﭥ ﭦ ﭧ ﭨ ﭩ ﭪ ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ ﭴ<br>
-    ١
-  </div>
+
+<h2>المصحف بالرسم العثماني</h2>
+<div id="page">ﮌﮍ<br>ﭑ ﭒ ﭓ ﭔ ﭕ ﭖ ﭗ ﭘ ﭙ ﭚ ﭛ ﭜ ﭝ ﭞ ﭟ ﭠ ﭡ ﭢ ﭣ ﭤ ﭥ ﭦ ﭧ ﭨ ﭩ ﭪ ﭫ ﭬ ﭭ ﭮ ﭯ ﭰ ﭱ ﭲ ﭳ ﭴ<br>١</div>
+
+<button onclick="prevPage()">السابق</button>
+<button onclick="nextPage()">التالي</button>
+
+<script>
+  let currentPage = 1;
+
+  function updateFont() {
+    const fontName = `QCF_P${String(currentPage).padStart(3, '0')}`;
+    const fontPath = `QCF_BSML.fonts/${fontName}.TTF`;
+
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @font-face {
+        font-family: '${fontName}';
+        src: url('${fontPath}') format('truetype');
+      }
+      #page {
+        font-family: '${fontName}';
+      }
+    `;
+    document.head.appendChild(style);
+
+    document.getElementById('page').innerHTML = `الصفحة رقم ${currentPage}`;
+  }
+
+  function nextPage() {
+    if (currentPage < 604) {
+      currentPage++;
+      updateFont();
+    }
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      updateFont();
+    }
+  }
+</script>
+
 </body>
 </html>
