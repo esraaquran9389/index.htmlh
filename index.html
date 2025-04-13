@@ -2,14 +2,36 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>المصحف</title>
+  <title>عرض صفحات المصحف</title>
   <style>
+    @font-face { font-family: 'QCF_P001'; src: url('QCF_P001.TTF'); }
+    @font-face { font-family: 'QCF_P002'; src: url('QCF_P002.TTF'); }
+    @font-face { font-family: 'QCF_P003'; src: url('QCF_P003.TTF'); }
+    @font-face { font-family: 'QCF_P004'; src: url('QCF_P004.TTF'); }
+    @font-face { font-family: 'QCF_P005'; src: url('QCF_P005.TTF'); }
+    @font-face { font-family: 'QCF_P006'; src: url('QCF_P006.TTF'); }
+    @font-face { font-family: 'QCF_P007'; src: url('QCF_P007.TTF'); }
+    @font-face { font-family: 'QCF_P008'; src: url('QCF_P008.TTF'); }
+    @font-face { font-family: 'QCF_P009'; src: url('QCF_P009.TTF'); }
+    @font-face { font-family: 'QCF_P010'; src: url('QCF_P010.TTF'); }
+    @font-face { font-family: 'QCF_P011'; src: url('QCF_P011.TTF'); }
+    @font-face { font-family: 'QCF_P012'; src: url('QCF_P012.TTF'); }
+    @font-face { font-family: 'QCF_P013'; src: url('QCF_P013.TTF'); }
+    @font-face { font-family: 'QCF_P014'; src: url('QCF_P014.TTF'); }
+    @font-face { font-family: 'QCF_P015'; src: url('QCF_P015.TTF'); }
+    @font-face { font-family: 'QCF_P016'; src: url('QCF_P016.TTF'); }
+    @font-face { font-family: 'QCF_P017'; src: url('QCF_P017.TTF'); }
+    @font-face { font-family: 'QCF_P018'; src: url('QCF_P018.TTF'); }
+    @font-face { font-family: 'QCF_P019'; src: url('QCF_P019.TTF'); }
+    @font-face { font-family: 'QCF_P020'; src: url('QCF_P020.TTF'); }
+    @font-face { font-family: 'QCF_P021'; src: url('QCF_P021.TTF'); }
+
     body {
-      margin: 0;
-      background: #f2f2f2;
-      font-size: 48px;
+      background: #f9f9f9;
       text-align: center;
-      padding: 50px 10px;
+      font-size: 48px;
+      padding: 40px;
+      direction: rtl;
     }
 
     .page {
@@ -21,100 +43,70 @@
     }
 
     .controls {
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     button {
-      font-size: 24px;
+      font-size: 20px;
       padding: 10px 20px;
       margin: 0 10px;
-      cursor: pointer;
     }
-
-    #page-indicator {
-      font-size: 24px;
-      margin-top: 10px;
-    }
-
-    /* تحميل الخطوط */
-    @font-face { font-family: 'QCF_P001'; src: url('fonts/QCF_P001.TTF'); }
-    @font-face { font-family: 'QCF_P002'; src: url('fonts/QCF_P002.TTF'); }
-    @font-face { font-family: 'QCF_P003'; src: url('fonts/QCF_P003.TTF'); }
-    @font-face { font-family: 'QCF_P004'; src: url('fonts/QCF_P004.TTF'); }
-    @font-face { font-family: 'QCF_P005'; src: url('fonts/QCF_P005.TTF'); }
-    @font-face { font-family: 'QCF_P006'; src: url('fonts/QCF_P006.TTF'); }
-    @font-face { font-family: 'QCF_P007'; src: url('fonts/QCF_P007.TTF'); }
-    @font-face { font-family: 'QCF_P008'; src: url('fonts/QCF_P008.TTF'); }
-    @font-face { font-family: 'QCF_P009'; src: url('fonts/QCF_P009.TTF'); }
-    @font-face { font-family: 'QCF_P010'; src: url('fonts/QCF_P010.TTF'); }
-    @font-face { font-family: 'QCF_P011'; src: url('fonts/QCF_P011.TTF'); }
-    @font-face { font-family: 'QCF_P012'; src: url('fonts/QCF_P012.TTF'); }
-    @font-face { font-family: 'QCF_P013'; src: url('fonts/QCF_P013.TTF'); }
-    @font-face { font-family: 'QCF_P014'; src: url('fonts/QCF_P014.TTF'); }
-    @font-face { font-family: 'QCF_P015'; src: url('fonts/QCF_P015.TTF'); }
-    @font-face { font-family: 'QCF_P016'; src: url('fonts/QCF_P016.TTF'); }
-    @font-face { font-family: 'QCF_P017'; src: url('fonts/QCF_P017.TTF'); }
-    @font-face { font-family: 'QCF_P018'; src: url('fonts/QCF_P018.TTF'); }
-    @font-face { font-family: 'QCF_P019'; src: url('fonts/QCF_P019.TTF'); }
-    @font-face { font-family: 'QCF_P020'; src: url('fonts/QCF_P020.TTF'); }
-    @font-face { font-family: 'QCF_P021'; src: url('fonts/QCF_P021.TTF'); }
   </style>
 </head>
 <body>
 
-  <!-- الصفحات -->
-  <div id="pages">
-    <div class="page active" style="font-family: 'QCF_P001';">الصفحة 1</div>
-    <div class="page" style="font-family: 'QCF_P002';">الصفحة 2</div>
-    <div class="page" style="font-family: 'QCF_P003';">الصفحة 3</div>
-    <div class="page" style="font-family: 'QCF_P004';">الصفحة 4</div>
-    <div class="page" style="font-family: 'QCF_P005';">الصفحة 5</div>
-    <div class="page" style="font-family: 'QCF_P006';">الصفحة 6</div>
-    <div class="page" style="font-family: 'QCF_P007';">الصفحة 7</div>
-    <div class="page" style="font-family: 'QCF_P008';">الصفحة 8</div>
-    <div class="page" style="font-family: 'QCF_P009';">الصفحة 9</div>
-    <div class="page" style="font-family: 'QCF_P010';">الصفحة 10</div>
-    <div class="page" style="font-family: 'QCF_P011';">الصفحة 11</div>
-    <div class="page" style="font-family: 'QCF_P012';">الصفحة 12</div>
-    <div class="page" style="font-family: 'QCF_P013';">الصفحة 13</div>
-    <div class="page" style="font-family: 'QCF_P014';">الصفحة 14</div>
-    <div class="page" style="font-family: 'QCF_P015';">الصفحة 15</div>
-    <div class="page" style="font-family: 'QCF_P016';">الصفحة 16</div>
-    <div class="page" style="font-family: 'QCF_P017';">الصفحة 17</div>
-    <div class="page" style="font-family: 'QCF_P018';">الصفحة 18</div>
-    <div class="page" style="font-family: 'QCF_P019';">الصفحة 19</div>
-    <div class="page" style="font-family: 'QCF_P020';">الصفحة 20</div>
-    <div class="page" style="font-family: 'QCF_P021';">الصفحة 21</div>
-  </div>
+  <!-- صفحات -->
+  <div class="page active" style="font-family: 'QCF_P001';">ﭑ ﭒ ﭓ ﭔ ﭕ ﭖ ﭗ ﭘ ﭙ ﭚ</div>
+  <div class="page" style="font-family: 'QCF_P002';">ﭛ ﭜ ﭝ ﭞ ﭟ ﭠ ﭡ ﭢ ﭣ ﭤ</div>
+  <div class="page" style="font-family: 'QCF_P003';">ﭥ ﭦ ﭧ ﭨ ﭩ ﭪ ﭫ ﭬ ﭭ ﭮ</div>
+  <div class="page" style="font-family: 'QCF_P004';">ﭯ ﭰ ﭱ ﭲ ﭳ ﭴ ﭵ ﭶ ﭷ ﭸ</div>
+  <div class="page" style="font-family: 'QCF_P005';">ﭹ ﭺ ﭻ ﭼ ﭽ ﭾ ﭿ ﮀ ﮁ ﮂ</div>
+  <div class="page" style="font-family: 'QCF_P006';">ﮃ ﮄ ﮅ ﮆ ﮇ ﮈ ﮉ ﮊ ﮋ ﮌ</div>
+  <div class="page" style="font-family: 'QCF_P007';">ﮍ ﮎ ﮏ ﮐ ﮑ ﮒ ﮓ ﮔ ﮕ ﮖ</div>
+  <div class="page" style="font-family: 'QCF_P008';">ﮗ ﮘ ﮙ ﮚ ﮛ ﮜ ﮝ ﮞ ﮟ ﮠ</div>
+  <div class="page" style="font-family: 'QCF_P009';">ﮡ ﮢ ﮣ ﮤ ﮥ ﮦ ﮧ ﮨ ﮩ ﮪ</div>
+  <div class="page" style="font-family: 'QCF_P010';">ﮫ ﮬ ﮭ ﮮ ﮯ ﮰ ﮱ ﯀ ﯁ ﯂</div>
+  <div class="page" style="font-family: 'QCF_P011';">﯃ ﯄ ﯅ ﯆ ﯇ ﯈ ﯉ ﯊ ﯋ ﯌</div>
+  <div class="page" style="font-family: 'QCF_P012';">ﯖ ﯗ ﯘ ﯙ ﯚ ﯛ ﯜ ﯝ ﯞ ﯟ</div>
+  <div class="page" style="font-family: 'QCF_P013';">ﯠ ﯡ ﯢ ﯣ ﯤ ﯥ ﯦ ﯧ ﯨ ﯩ</div>
+  <div class="page" style="font-family: 'QCF_P014';">ﯪ ﯫ ﯬ ﯭ ﯮ ﯯ ﯰ ﯱ ﯲ ﯳ</div>
+  <div class="page" style="font-family: 'QCF_P015';">ﯴ ﯵ ﯶ ﯷ ﯸ ﯹ ﯺ ﯻ ﯼ ﯽ</div>
+  <div class="page" style="font-family: 'QCF_P016';">ﯾ ﯿ ﰀ ﰁ ﰂ ﰃ ﰄ ﰅ ﰆ ﰇ</div>
+  <div class="page" style="font-family: 'QCF_P017';">ﰈ ﰉ ﰊ ﰋ ﰌ ﰍ ﰎ ﰏ ﰐ ﰑ</div>
+  <div class="page" style="font-family: 'QCF_P018';">ﰒ ﰓ ﰔ ﰕ ﰖ ﰗ ﰘ ﰙ ﰚ ﰛ</div>
+  <div class="page" style="font-family: 'QCF_P019';">ﰜ ﰝ ﰞ ﰟ ﰠ ﰡ ﰢ ﰣ ﰤ ﰥ</div>
+  <div class="page" style="font-family: 'QCF_P020';">ﰦ ﰧ ﰨ ﰩ ﰪ ﰫ ﰬ ﰭ ﰮ ﰯ</div>
+  <div class="page" style="font-family: 'QCF_P021';">ﰰ ﰱ ﰲ ﰳ ﰴ ﰵ ﰶ ﰷ ﰸ ﰹ</div>
 
-  <!-- الأزرار -->
   <div class="controls">
-    <button onclick="prev()">السابق</button>
-    <button onclick="next()">التالي</button>
+    <button onclick="prevPage()">السابق</button>
+    <button onclick="nextPage()">التالي</button>
+    <div id="page-indicator">الصفحة 1 من 21</div>
   </div>
-  <div id="page-indicator">الصفحة: 1</div>
 
   <script>
-    let current = 0;
     const pages = document.querySelectorAll('.page');
+    const indicator = document.getElementById('page-indicator');
+    let currentPage = 0;
 
-    function show(index) {
-      pages.forEach(p => p.classList.remove('active'));
-      pages[index].classList.add('active');
-      document.getElementById('page-indicator').innerText = 'الصفحة: ' + (index + 1);
+    function updateView() {
+      pages.forEach((page, i) => {
+        page.classList.toggle('active', i === currentPage);
+      });
+      indicator.textContent = `الصفحة ${currentPage + 1} من ${pages.length}`;
     }
 
-    function next() {
-      if (current < pages.length - 1) {
-        current++;
-        show(current);
+    function nextPage() {
+      if (currentPage < pages.length - 1) {
+        currentPage++;
+        updateView();
       }
     }
 
-    function prev() {
-      if (current > 0) {
-        current--;
-        show(current);
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        updateView();
       }
     }
   </script>
